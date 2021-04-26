@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="pagePadding">20dp</dimen>
+    <dimen name="btnPadding">10dp</dimen>
+    <dimen name="btnMargin">20dp</dimen>
+
+</resources>

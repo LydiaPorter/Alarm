@@ -1,0 +1,34 @@
+<resources>
+    <!--you can use one string multiple times to use less memory-->
+    <string name="app_name">Drink Advisor</string>
+    <string name="find_drink">Find Drink!</string>
+    <string name="brands">No Drink Selected</string>
+    <string name="name">Lydia Porter</string>
+    <string name="company_name">My Company Name</string>
+    <string name="copyright">Copyright 2021</string>
+    <string name="TCSD">Tooele County Schools</string>
+    <string name="email">Contact us!</string>
+    <string name="art_designer">Art designed by so-and-so</string>
+    <string name="version_number">0.0.1</string>
+    <string name="credits">credits</string>
+    <string name="language">choose a language</string>
+    <string name="developers">This app is brought to you by the developers!</string>
+
+    <!--my comment!!!!!!!!!! yaaay!-->
+
+    <string-array name="type_array">
+        <item>Clear</item>
+        <item>Dark Cola</item>
+        <item>Punch</item>
+        <item>Diet</item>
+        <item>Zero Sugar</item>
+        <item>Monster Energy Drinks</item>
+        <item>Tea</item>
+        <item>Coffee</item>
+        <item>Caffeinated</item>
+        <item>Caffeine Free</item>
+        <item>Non-Carbonated</item>
+
+    </string-array>
+
+</resources>

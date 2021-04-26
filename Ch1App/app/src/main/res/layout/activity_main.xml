@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="221dp"
+        android:layout_height="65dp"
+        android:fontFamily="casual"
+        android:text="Hello, my name is Lydia."
+        android:textColor="#0F29D1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="my birthday"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="394dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="cursive"
+        android:text="6_7 period"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="470dp" />
+
+
+    <TextView
+        android:id="@+id/tv2"
+        android:layout_width="129dp"
+        android:layout_height="20dp"
+        android:fontFamily="casual"
+        android:text="here is some text!"
+        tools:layout_editor_absoluteX="128dp"
+        tools:layout_editor_absoluteY="271dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="230dp"
+        android:layout_height="203dp"
+        tools:layout_editor_absoluteX="93dp"
+        tools:layout_editor_absoluteY="37dp"
+        tools:srcCompat="@tools:sample/avatars">
+
+        <TextView
+            android:layout_width="129dp"
+            android:layout_height="20dp"
+            android:fontFamily="casual"
+            android:text="Look at my picture!" />
+
+    </ImageView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

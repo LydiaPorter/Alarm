@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">guessMyNumber</string>
+    <string name="welcome_lbl">Welcome to the Guess My Number game!</string>
+    <string name="instructions">Pick a number between 1 and 10.</string>
+    <string name="correct">You got it! Good job!</string>
+    <string name="wrong">Whoops! Try again.</string>
+    <string name="higher">Guess higher.</string>
+    <string name="lower">Guess lower.</string>
+
+    <string name="creator">Lydia Porter</string>
+    <string name="company">Tooele County School District</string>
+    <string name="contact">lydia.porter@tooeleschools.org</string>
+    <string name="version_num">0.0.1</string>
+    <string name="date">2/8/2021</string>
+</resources>

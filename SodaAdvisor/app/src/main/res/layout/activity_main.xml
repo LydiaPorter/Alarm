@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <Spinner
+        android:id="@+id/color"
+        android:layout_width="269dp"
+        android:layout_height="296dp"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:layout_marginTop="40dp"
+        android:spinnerMode="dropdown"
+        android:entries="@array/type_array"/>
+    <!--dp: device independent pixel-->
+    <!--the type array holds all the options of drink types-->
+
+    <TextView
+        android:id="@+id/soda_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:onClick="onClick_findDrink"/>
+
+    <Button
+        android:id="@+id/submit_btn"
+        android:layout_width="360dp"
+        android:layout_height="wrap_content"
+        android:onClick="onClick_findDrink"
+        android:text="@string/find_drink" />
+
+    <!--goes to strings xml file and grabs the brand string-->
+
+    <TextView
+        android:id="@+id/brands"
+        android:layout_width="360dp"
+        android:layout_height="122dp"
+        android:text="@string/brands" />
+
+
+</LinearLayout>
+

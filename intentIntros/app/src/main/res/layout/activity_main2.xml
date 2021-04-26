@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity2">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="431dp"
+        android:layout_height="wrap_content"
+        android:text="hello, THIS IS PAGE 2" />
+
+    <TextView
+        android:id="@+id/welcomelbl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="hi" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="437dp"
+        android:layout_height="wrap_content"
+        android:onClick="onClick"
+        android:text="go to page 3" />
+
+    <TextView
+        android:id="@+id/agelblpg2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+</LinearLayout>
