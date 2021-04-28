@@ -75,11 +75,14 @@ public class AlarmKeeper {
         //set alarm
         am.set(AlarmManager.RTC_WAKEUP,cal.getTimeInMillis(),sender);
 
-
-
     }
     public void cancelAlarm(Context context){
-        
+        Intent intent = new Intent(context,AlarmReceiver.class);
+        intent.putExtra("alarm_message",alarmDesc);
+        PendingIntent sender = PendingIntent.getBroadcast(context,alarmReqCode,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+        AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
+        alarmManager.cancel(sender);
+
     }
 
     public String buildString(){

@@ -1,10 +1,11 @@
 package com.example.reminderapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.DialogFragment;
+
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,6 +14,8 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
+
+import java.util.Calendar;
 
 public class AddAlarm extends AppCompatActivity implements View.OnClickListener{
     //Create a global instance of AlarmKeeper. This will allow us to access this variable anywhere in our class
@@ -89,12 +92,34 @@ public class AddAlarm extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
+        int id = v.getId();
+        if(id == R.id.saveBtn){
+            EditText name = (EditText)findViewById(R.id.editAlarmName);
+            EditText desc = (EditText)findViewById(R.id.editDescription);
 
+            thisAlarm.alarmName = name.getText().toString();
+            thisAlarm.alarmDesc = desc.getText().toString();
+            DialogFragment newFragment = new MyAlertDialog();
+            newFragment.show(getFragmentManager(),"MyAlertDialog");
+        }
+        else if (id == R.id.dateBtn){
+            DialogFragment newFragment = new MyDatePicker();
+            newFragment.show(getFragmentManager(),"MyAlertDialog");
+        }
+        else if(id == R.id.timeBtn){
+            DialogFragment newFragment = new MyTimePicker();
+            newFragment.show(getFragmentManager(),"MyAlertDialog");
+        }
     }
 
+    //
     public static class MyDatePicker extends DialogFragment implements DatePickerDialog.OnDateSetListener{
 
         public Dialog onCreateDialog(Bundle SavedInstanceState){
+            Calendar now = Calendar.getInstance();
+            int year = now.get(Calendar.YEAR);
+            int month = now.get(Calendar.MONTH);
+            int day = now.get(Calendar.DAY_OF_MONTH);
             return null;
         }
 
