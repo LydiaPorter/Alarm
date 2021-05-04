@@ -64,7 +64,7 @@ public class AlarmKeeper {
         cal.set(alarmYear,alarmMonth,alarmDay,alarmHour,alarmMinute);
         Intent intent = new Intent(context,AlarmReceiver.class);
         intent.putExtra("alarm_name",alarmName);
-        intent.putExtra("alarm-desc",alarmDesc);
+        intent.putExtra("alarm_desc",alarmDesc);
 
         PendingIntent sender = PendingIntent.getBroadcast(context,alarmReqCode,intent,PendingIntent.FLAG_UPDATE_CURRENT);
         //WAITING FOR TIME TO OCCUR BEFORE INTENT STARTS
@@ -79,7 +79,8 @@ public class AlarmKeeper {
     public void cancelAlarm(Context context){
         Intent intent = new Intent(context,AlarmReceiver.class);
         intent.putExtra("alarm_message",alarmDesc);
-        PendingIntent sender = PendingIntent.getBroadcast(context,alarmReqCode,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent sender = PendingIntent.getBroadcast(context,alarmReqCode,intent,PendingIntent.FLAG_UPDATE_CURRENT); //push notification
+        //if criteria is met, pop up the alarm notification (even if that app isn't open)
         AlarmManager alarmManager = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
         alarmManager.cancel(sender);
 

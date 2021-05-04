@@ -3,10 +3,12 @@ package com.example.reminderapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.TimePickerDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -120,29 +122,91 @@ public class AddAlarm extends AppCompatActivity implements View.OnClickListener{
             int year = now.get(Calendar.YEAR);
             int month = now.get(Calendar.MONTH);
             int day = now.get(Calendar.DAY_OF_MONTH);
-            return null;
+            return new DatePickerDialog(getActivity(), this, year, month, day);
         }
 
         @Override
-        public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+        public void onDateSet(DatePicker view, int year, int month, int day) {
+            AddAlarm activity = (AddAlarm)getActivity();
+            activity.thisAlarm.alarmYear = year;
+            activity.thisAlarm.alarmMonth = month;
+            activity.thisAlarm.alarmDay = day;
+
+            Button dateBtn = (Button)activity.findViewById(R.id.dateBtn);
+            dateBtn.setText(Integer.toString(month+1)+"/"+day+"/"+year);
+
 
         }
     }
     public static class MyTimePicker extends DialogFragment implements TimePickerDialog.OnTimeSetListener{
 
         public Dialog onCreateDialog(Bundle SavedInstanceState){
-            return null;
+            Calendar now = Calendar.getInstance();
+            int hour = now.get(Calendar.HOUR_OF_DAY);
+            int minute = now.get(Calendar.MINUTE);
+
+            return new TimePickerDialog(getActivity(),this,hour,minute, false);
         }
 
         @Override
-        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        public void onTimeSet(TimePicker view, int hour, int minute) {
+            AddAlarm activity = (AddAlarm)getActivity();
+            activity.thisAlarm.alarmHour = hour;
+            activity.thisAlarm.alarmMinute = minute;
+            String AMPM = "AM";
+            String strMinute;
+
+            if(hour>12){
+                hour = hour - 12;
+                AMPM = "PM";
+            }
+
+            if(minute < 10){
+                strMinute = "0"+minute;
+            }
+            else {
+                strMinute = "" + minute; //parse/make it a string
+            }
+
+            Button timeBtn = (Button)activity.findViewById(R.id.timeBtn);
+            timeBtn.setText(hour + ":" + strMinute+AMPM);
 
         }
     }
 
         public static class MyAlertDialog extends DialogFragment{
             public Dialog onCreateDialog(Bundle SavedInstanceState){
-                return null;
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                builder.setMessage("Are you sure you want to set this alarm?");
+                builder.setCancelable(false); //can't just ignore it
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        AddAlarm activity = (AddAlarm)getActivity();
+                        if(activity.thisAlarm.alarmName == null || activity.thisAlarm.alarmName.length() == 0){
+                            return;
+                        }
+                        if(activity.thisAlarm.alarmDesc == null || activity.thisAlarm.alarmDesc.length() == 0){
+                            return;
+                        }
+                        if(activity.thisAlarm.alarmYear == 0){
+                            return;
+                        }
+                        if(activity.thisAlarm.alarmHour == 0){
+                            return;
+                        }
+                        activity.thisAlarm.setAlarm(activity);
+                        activity.clearAlarmScreen(); //set back to default by using the method below
+                    }
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        AddAlarm activity = (AddAlarm)getActivity(); //get reference to activity
+                        activity.clearAlarmScreen(); //call method to clear and reset it
+                    }
+                });
+                return builder.create();
             }
         }
 
