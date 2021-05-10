@@ -9,7 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.ReminderApp">
-        <activity android:name=".AlarmReceiver"></activity>
+        <activity android:name=".Snooze"
+            android:launchMode = "singleTask"
+            android:taskAffinity=""
+            android:excludeFromRecents="true">
+        </activity>
+        <activity android:name=".AlarmReceiver" />
         <activity android:name=".AlarmList" />
         <activity android:name=".AlarmKeeper" />
         <activity android:name=".AddAlarm">

@@ -234,7 +234,6 @@ public class AddAlarm extends AppCompatActivity implements View.OnClickListener{
             setResult(RESULT_OK, listIntent);
             finish();
 
-
         }
 
 }
