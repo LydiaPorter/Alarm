@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.net.*;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Toast;
 import android.app.Notification;
@@ -19,9 +21,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Uri uri = Uri.parse("https://www.CompuScholar.com");
-        Intent viewIntent = new Intent(Intent.ACTION_VIEW, uri);
-        startActivity(viewIntent);
+
+//        Uri uri = Uri.parse("https://www.CompuScholar.com");
+//        Intent viewIntent = new Intent(Intent.ACTION_VIEW, uri);
+//        startActivity(viewIntent);
+    }
+
+    ////////////////////
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater mi = getMenuInflater();
+        mi.inflate(R.menu.menu, menu);
+        return true;
     }
 
     @Override
